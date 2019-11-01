@@ -18,4 +18,6 @@
 CelObjeto *
 infixaParaPosfixa (CelObjeto *iniInfixa);
 
+
+
 #endif

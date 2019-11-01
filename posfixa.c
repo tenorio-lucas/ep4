@@ -54,6 +54,8 @@
   *  posfixa (abre e fecha parenteses) devem ser liberadas 
   *  (freeObjeto()).
   */
+
+
 CelObjeto *
 infixaParaPosfixa(CelObjeto *iniInfixa)
 {
@@ -63,7 +65,7 @@ infixaParaPosfixa(CelObjeto *iniInfixa)
   /*criando lista posfixa */
   iniPosf = mallocSafe(sizeof(CelObjeto));
   iniPosf->prox = NULL;
-  aux = iniPosf
+  fimPosf = iniPosf
 
   Item item;
 
@@ -78,6 +80,40 @@ infixaParaPosfixa(CelObjeto *iniInfixa)
       item.valor.pStr = iniInfixa->valor.pStr;
       item.categoria = iniInfixa->categoria;
       
+      case OPER_ATRIBUICAO: 
+      
+      break;
+      case OPER_LOGICO_OR:
+
+      break;
+      case OPER_LOGICO_AND:
+
+      break;
+      case OPER_IGUAL:
+      case OPER_DIFERENTE:
+
+      break;
+      case OPER_MAIOR:
+      case OPER_MENOR:
+      case OPER_MAIOR_IGUAL:
+      case 
+      case OPER_ADICAO:
+      case OOPER_MENOR_IGUAL:
+
+      break;PER_SUBTRACAO:
+
+      break;
+      case OPER_MULTIPLICACAO:
+      case OPER_DIVISAO:
+      case OPER_RESTO_DIVISAO:
+      case OPER_DIVISAO_INT:
+
+      break:
+      case OPER_LOGICO_NOT:
+      case OPER_MENOS_UNARIO:
+      case OPER_EXPONENCIACAO:
+      
+      break;
       case ABRE_PARENTESES:
         stackPush(pilha, item);
       break;
@@ -85,13 +121,15 @@ infixaParaPosfixa(CelObjeto *iniInfixa)
         item = stackPop(iniInfixa);
         while(item != ABRE_PARENTESES){
         
-        CelObjeto nova;
+        CelObjeto *nova;/*criando uma nova celula na fila */
+        nova = mallocSafe(sizeof(CelObjeto));
         nova.valor.vFloat = item.valor.vFloat;
         nova.valor.vInt =  item.valor.vInt;
         nova.valor.pStr = item.valor.pStr;
         nova.categoria = item.categoria;
         nova.prox->NULL;
-        fimPosf = &nova;
+        fimPosf->prox = nova;
+        fimPosf = nova;
         item = stackPop(iniInfixa);
         }
       break;
